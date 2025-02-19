@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Boxes</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .expanded {
+            width: 300px;
+            height: 300px;
+        }
+        .options {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .expanded .options {
+            display: flex;
+        }
+        button {
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="toggleExpand(this)">
+        Box 1
+        <div class="options">
+            <button onclick="changeColor(event, 'red')">Red</button>
+            <button onclick="changeColor(event, 'blue')">Blue</button>
+            <button onclick="changeSize(event, '200px')">Size +</button>
+        </div>
+    </div>
+    <div class="box" onclick="toggleExpand(this)">
+        Box 2
+        <div class="options">
+            <button onclick="changeColor(event, 'green')">Green</button>
+            <button onclick="changeColor(event, 'yellow')">Yellow</button>
+            <button onclick="changeSize(event, '250px')">Size +</button>
+        </div>
+    </div>
+    <div class="box" onclick="toggleExpand(this)">
+        Box 3
+        <div class="options">
+            <button onclick="changeColor(event, 'purple')">Purple</button>
+            <button onclick="changeColor(event, 'orange')">Orange</button>
+            <button onclick="changeSize(event, '300px')">Size +</button>
+        </div>
+    </div>
+    
+    <script>
+        function toggleExpand(box) {
+            box.classList.toggle('expanded');
+        }
+        function changeColor(event, color) {
+            event.stopPropagation();
+            event.target.closest('.box').style.backgroundColor = color;
+        }
+        function changeSize(event, size) {
+            event.stopPropagation();
+            event.target.closest('.box').style.width = size;
+            event.target.closest('.box').style.height = size;
+        }
+    </script>
+</body>
+</html>
