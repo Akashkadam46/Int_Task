@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #111;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+        }
+        .warning {
+            background-color: yellow;
+            font-weight: bold;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .option {
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .option:hover {
+            border-color: #ff6699;
+        }
+        .option.selected {
+            border-color: #ff6699;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px #ff6699;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6699;
+        }
+        .add-to-cart {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-section {
+            margin-top: 20px;
+        }
+        .login-section button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sign-up {
+            background-color: blue;
+            color: white;
+            border: none;
+        }
+        .log-in {
+            background-color: white;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="warning">Do not comment anything on Figma</div> -->
+        <h3>YAY! It's BOGO</h3>
+        <div class="option" onclick="selectOption(this)">
+            <p>1 Unit <span class="price"> - $10.00 USD (10% Off)</span></p>
+        </div>
+        <div class="option" onclick="selectOption(this)">
+            <p>2 Units <span class="price"> - $18.00 USD (20% Off)</span></p>
+        </div>
+        <div class="option" onclick="selectOption(this)">
+            <p>3 Units <span class="price"> - $24.00 USD (30% Off)</span></p>
+        </div>
+        <button class="add-to-cart">+ Add to Cart</button>
+        <div class="login-section">
+            <button class="sign-up">Sign up</button>
+            <button class="log-in">Log in</button>
+        </div>
+    </div>
+
+    <script>
+        function selectOption(element) {
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
